@@ -20,12 +20,13 @@ function addList() {
     $(".citylist").append($("<br>"));
 }
 
-// Create a function to append content to main card
+
 
 
 //Search button onclick with all relevant functions
 $("#search-btn").on("click", function () {
     event.preventDefault();
+
 
     citySearch = $("#search-input").val().trim();
     citySearch = citySearch.replace(' ', '+');
@@ -41,6 +42,8 @@ $("#search-btn").on("click", function () {
     }).then(function (response) {
 
         console.log('forecast response for ' + citySearch, response);
+
+        // Create a function to append content to main card
 
         function cardContent() {
 
@@ -83,6 +86,22 @@ $("#search-btn").on("click", function () {
 
         cardContent();
 
+
+        // Create a function to append 5-day forecasts. Use with 8:, 16:, 24:, 32:, 39: Data needed: Date, temp, humidity
+
+        function fiveDay() {
+
+
+            $("#5-day").text("5-Day Forecast:");
+
+            $(".forecast").addClass("forecast col-2 m-2 card text-white bg-primary");
+
+            $("#day1date").text(response.list[8].dt_txt.slice(0, 10));
+
+        }
+
+        fiveDay();
+
     })
 
     addList();
@@ -90,3 +109,5 @@ $("#search-btn").on("click", function () {
 })
 
 addList();
+
+
