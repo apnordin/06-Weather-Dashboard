@@ -62,11 +62,22 @@ $("#search-btn").on("click", function () {
                 method: "GET"
             }).then(function (uvResponse) {
 
-                console.log('UV Response: ', uvResponse);
+                console.log('UV Index: ', uvResponse.value);
+
+                var uvDisplay = $("<span>");
+                uvDisplay.addClass("badge");
+                uvDisplay.text(uvResponse.value)
+
+                if (uvResponse.value < 4) {
+                    uvDisplay.addClass("badge-success")
+                } else if (uvResponse.value > 6) {
+                    uvDisplay.addClass("badge-danger")
+                } else {
+                    uvDisplay.addClass("badge-warning")
+                }
+
+                $("#uv-index").text('UV Index: ').append(uvDisplay);
             })
-
-            $("#uv-index").text('UV Index: ');
-
 
         }
 
