@@ -5,11 +5,17 @@ var citySearch = "";
 
 var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
+addList();
+
 // Create addList function to generate list of cities
 function addList() {
+
+    citySearch = localStorage.getItem("citySearch");
+
     var cityBtn = $("<button>");
-    cityBtn.text(citySearch);
+    cityBtn.text(citySearch.substr(0, 1).toUpperCase() + citySearch.substr(1).replace('+', ' '));
     $(".citylist").append(cityBtn);
+
 }
 
 //Search button onclick with all relevant functions
@@ -24,16 +30,16 @@ $("#search-btn").on("click", function () {
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
 
-    // localStorage.setItem('')
+    localStorage.setItem('citySearch', citySearch)
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
+    // $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    // }).then(function (response) {
 
-        console.log('forecast response for ' + citySearch, response);
+    //     console.log('forecast response for ' + citySearch, response);
 
-    })
+    // })
 
     addList();
 })
