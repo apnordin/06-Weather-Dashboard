@@ -96,7 +96,24 @@ $("#search-btn").on("click", function () {
 
             $(".forecast").addClass("forecast col-2 m-2 card text-white bg-primary");
 
-            $("#day1date").text(response.list[8].dt_txt.slice(0, 10));
+            $("#day1date").text(response.list[8].dt_txt.slice(5, 10));
+            $("#day2date").text(response.list[16].dt_txt.slice(5, 10));
+            $("#day3date").text(response.list[24].dt_txt.slice(5, 10));
+            $("#day4date").text(response.list[32].dt_txt.slice(5, 10));
+            $("#day5date").text(response.list[39].dt_txt.slice(5, 10));
+
+            $("#day1temp").text('Temp: ' + (Math.round((response.list[8].main.temp) * 9 / 5 - 459.67)) + "°F");
+            $("#day2temp").text('Temp: ' + (Math.round((response.list[16].main.temp) * 9 / 5 - 459.67)) + "°F");
+            $("#day3temp").text('Temp: ' + (Math.round((response.list[24].main.temp) * 9 / 5 - 459.67)) + "°F");
+            $("#day4temp").text('Temp: ' + (Math.round((response.list[32].main.temp) * 9 / 5 - 459.67)) + "°F");
+            $("#day5temp").text('Temp: ' + (Math.round((response.list[39].main.temp) * 9 / 5 - 459.67)) + "°F");
+
+            $("#day1hum").text('Humidity: ' + response.list[8].main.humidity);
+            $("#day2hum").text('Humidity: ' + response.list[16].main.humidity);
+            $("#day3hum").text('Humidity: ' + response.list[24].main.humidity);
+            $("#day4hum").text('Humidity: ' + response.list[32].main.humidity);
+            $("#day5hum").text('Humidity: ' + response.list[39].main.humidity);
+
 
         }
 
