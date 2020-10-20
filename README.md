@@ -1,5 +1,7 @@
 ## Attempted to create a for-loop using [i] to create multiple localstorage spots for citySearch
 
+## Was receiving an error: "The page was loaded over HTTPS but requested an insecure XMLHttpRequest endpoint, this content should be served over HTTPS. In order to get the app to show in-browser, I had to allow this site on my Insecure Content setting in Google Chrome
+
 
 # 06 Server-Side APIs: Weather Dashboard
 
