@@ -3,6 +3,7 @@ var APIkey = "4add3f52cecb0be27920f2537ea37116";
 var queryURL = "";
 var citySearch = "";
 var today = moment();
+var cityBtn = "";
 
 var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
@@ -12,8 +13,10 @@ var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch
 
 // Create addList function to generate list of cities
 function addList() {
+
     citySearch = localStorage.getItem("citySearch");
-    var cityBtn = $("<button>");
+
+    cityBtn = $("<button>");
     cityBtn.text(citySearch.substr(0, 1).toUpperCase() + citySearch.substr(1).replace('+', ' '));
     cityBtn.addClass("btn btn-outline-dark my-1");
     $(".citylist").append(cityBtn);
@@ -212,8 +215,10 @@ $("#search-btn").on("click", function () {
         fiveDay();
 
     })
-
+    $(".citylist").empty();
     addList();
+
+
 
 })
 
