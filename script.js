@@ -5,7 +5,7 @@ var citySearch = "";
 var today = moment();
 var cityBtn = "";
 
-var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
 
 
@@ -26,7 +26,7 @@ function addList() {
         console.log('button clicked');
         console.log(citySearch);
 
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
         $.ajax({
             url: queryURL,
@@ -50,7 +50,7 @@ function addList() {
                 var lat = response.city.coord.lat;
                 var lon = response.city.coord.lon;
 
-                var uvURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
+                var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
 
                 $.ajax({
                     url: uvURL,
@@ -129,7 +129,7 @@ $("#search-btn").on("click", function () {
 
     localStorage.setItem('citySearch', citySearch)
 
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&APPID=" + APIkey;
 
     $.ajax({
         url: queryURL,
@@ -153,7 +153,7 @@ $("#search-btn").on("click", function () {
             var lat = response.city.coord.lat;
             var lon = response.city.coord.lon;
 
-            var uvURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
+            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey;
 
             $.ajax({
                 url: uvURL,
